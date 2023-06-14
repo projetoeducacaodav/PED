@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Página Responsiva com Header da Direita para a Esquerda</title>
+	<style>
+		/* Estilos para a página */
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+			box-sizing: border-box;
+		}
+
+		/* Estilos para o header */
+
+		.header {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			height: 80px;
+			background-color: #333;
+			color: #fff;
+			padding: 0 20px;
+		}
+
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			margin: 0;
+		}
+
+		/* Estilos para o conteúdo principal */
+
+		.main-content {
+			padding: 40px 0;
+		}
+
+		/* Estilos para a seção de rodapé */
+
+		.footer {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1 class="logo">Logo da Empresa</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Página Inicial</a></li>
+				<li><a href="#">Sobre Nós</a></li>
+				<li><a href="#">Contato</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="container">
+		<main class="main-content">
+			<h2>Seja Bem-vindo!</h2>
+			<p>Este é um exemplo de página responsiva com um header da direita para a esquerda.</p>
+		</main>
+	</div>
+
+	<footer class="footer">
+		<p>&copy; 2023 Todos os direitos reservados.</p>
+	</footer>
+</body>
+</html>
