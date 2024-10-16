@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://i.ibb.co/S3sDwR0/favicon.png">
+  <title>Projeto Educação Dav</title>
+  <!-- CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- CSS do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    /* Estilo da barra de menu */
+    .navbar {
+      background-color: #084876d2;
+      margin-bottom: 0;
+      border: none;
+      z-index: 1000;
+    }
+
+    .navbar-brand img {
+      height: 39px;
+      margin-top: -9px;
+      margin-left: 0px;
+      background-color: #ffffff9d;
+      border-radius: 50px;
+    }
+
+    .navbar-nav > li > a {
+      color: white !important;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    /* Quando o menu está ativo, a cor do link deve ficar preta */
+    .navbar-nav > li.open > a {
+      color: black !important;
+    }
+
+    /* Título com fundo cinza */
+    .section-title {
+      background-color: #e0e0e0;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-top: 100px;
+    }
+
+    /* Centralizando as imagens com links */
+    .image-links {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 50px;
+      margin-bottom: 100px;
+      flex-wrap: wrap;
+    }
+
+    .image-links div {
+      text-align: center;
+    }
+
+    .image-links img {
+      width: 500px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .image-links a {
+      color: #000;
+      font-size: 1.2em;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .image-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Tornando as imagens menores em telas pequenas */
+    @media (max-width: 768px) {
+      .image-links img {
+        width: 100%;
+        height: auto;
+      }
+      .navbar-nav > li > a {
+        font-size: 1.1em;
+        color: white !important;
+      }
+
+      /* Ajustando o menu dropdown em telas menores */
+      .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+
+      .section-title {
+        font-size: 1.5em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-links {
+        gap: 20px;
+      }
+      .navbar-nav > li > a {
+        font-size: 1.1em;
+        color: white !important;
+      }
+
+      /* Ajustando o menu dropdown em telas menores */
+      .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+
+      .section-title {
+        font-size: 1.3em;
+      }
+    }
+
+    /* Estilo do rodapé */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer .social-icons a {
+      color: white;
+      font-size: 24px;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer .social-icons a:hover {
+      color: #4da2de;
+    }
+  </style>
+
+  <script>
+    // Script para alterar a cor do texto quando o menu estiver aberto
+    $(document).ready(function() {
+      $('.dropdown').on('show.bs.dropdown', function() {
+        $(this).find('a.dropdown-toggle').css('color', 'black');
+      });
+
+      $('.dropdown').on('hide.bs.dropdown', function() {
+        $(this).find('a.dropdown-toggle').css('color', 'white');
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <!-- Barra de navegação -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="https://i.ibb.co/FxxkRvL/logo-transparent.png" alt="Logo">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">IFMA <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Integrado</a></li>
+              <li><a href="#">Concomitante</a></li>
+              <li><a href="#">Subsequente</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMT <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">6º Ano</a></li>
+              <li><a href="#">9º Ano</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">VOLTAR <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Página principal</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Título acima das imagens -->
+  <div class="section-title">Selecione um dos Links Abaixo</div>
+
+  <!-- Imagens com links no centro da página -->
+  <div class="image-links">
+    <div>
+      <a href="https://link1.com">
+        <img src="https://i.ibb.co/W5VFVnC/PORTUGU-S-CMT-3.png" alt="Link 1">
+        <a href="https://link1.com">Clique aqui para acessar o Link 1</a>
+      </a>
+    </div>
+    <div>
+      <a href="https://link2.com">
+        <img src="https://via.placeholder.com/500x500/FF6347/fff?text=Link+2" alt="Link 2">
+        <a href="https://link2.com">Clique aqui para acessar o Link 2</a>
+      </a>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/projetoeducacaodav?igsh=ZHZvamRiaHR3Nmp6" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@projetoeducacao5790" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="info">
+      <p>&copy; 2024 Projeto Educação Dav. Todos os direitos reservados.</p>
+      <p>Contato: projeto.educacao.dav@gmail.com</p>
+      <p>Telefone: (99) -</p>
+    </div>
+  </footer>
+
+</body>
+</html>
