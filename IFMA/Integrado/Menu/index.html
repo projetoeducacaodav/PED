@@ -82,6 +82,35 @@
     .image-links a:hover {
       text-decoration: underline;
     }
+    /* Estilo base da imagem */
+  .image-links img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Transição suave para o hover */
+  }
+
+  /* Estilo base do link */
+  .image-links a {
+    color: #000;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    transition: color 0.3s ease; /* Transição suave para o hover */
+  }
+
+  /* Efeito hover para a imagem */
+  .image-links img:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 5% */
+  }
+
+  /* Efeito hover para o link de texto */
+  .image-links a:hover {
+    color: #1e90ff; /* Cor do texto no hover (azul) */
+    text-decoration: underline; /* Sublinha o texto no hover */
+  }
 
     /* Tornando as imagens menores em telas pequenas */
     @media (max-width: 768px) {
