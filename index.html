@@ -77,6 +77,55 @@
   font-size: 1em; /* Define o tamanho da fonte do parágrafo */
 }
 
+/* Estilo básico para a seção de notícias */
+.noticias {
+  display: flex; /* Organiza as notícias em um layout flexível, horizontal */
+  justify-content: space-around; /* Espaça as notícias uniformemente com espaços antes e depois das extremidades */
+  gap: 20px; /* Define um espaço de 20px entre cada notícia */
+}
+
+.noticia {
+  width: 300px; /* Define a largura de cada notícia como 300px */
+  text-align: center; /* Centraliza o conteúdo da notícia */
+  border: 1px solid #ddd; /* Adiciona uma borda cinza clara em torno da notícia */
+  border-radius: 10px; /* Arredonda levemente os cantos da notícia */
+  overflow: hidden; /* Oculta o conteúdo que ultrapassa o limite da borda */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Suaviza a transição da sombra e do efeito de transformação ao passar o mouse */
+}
+
+.noticia img {
+  width: 100%; /* Define que a imagem ocupará toda a largura da notícia */
+  height: auto; /* Mantém a proporção original da imagem */
+  transition: transform 0.3s ease; /* Aplica uma transição suave quando a imagem é transformada no hover */
+}
+
+.noticia h3 {
+  font-size: 1.5em; /* Define o tamanho da fonte do título como 1.5 vezes o tamanho padrão */
+  margin: 10px 0; /* Adiciona 10px de margem acima e abaixo do título */
+  transition: color 0.3s ease; /* Suaviza a transição de cor no hover */
+}
+
+.noticia p {
+  padding: 0 10px; /* Adiciona 10px de espaçamento nas laterais do parágrafo */
+  font-size: 1em; /* Define o tamanho da fonte do parágrafo como padrão */
+}
+
+/* Efeito hover na notícia */
+.noticia:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra em torno da notícia ao passar o mouse */
+  transform: scale(1.05); /* Aumenta levemente o tamanho da notícia em 5% no hover */
+}
+
+/* Efeito hover na imagem */
+.noticia:hover img {
+  transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
+}
+
+/* Efeito hover no título */
+.noticia:hover h3 {
+  color: #1e90ff; /* Altera a cor do título para azul ao passar o mouse */
+}
+
 /* Estilo do Carrossel */
 .carousel-container {
   position: relative;
