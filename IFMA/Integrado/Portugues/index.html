@@ -605,6 +605,12 @@ h4 {
       } else if (element.closest(".panel-body").contains(document.getElementById("main-video-2"))) {
         mainVideo = document.getElementById("main-video-2");
         titleElement = document.querySelector('#collapse2 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-3"))) {
+        mainVideo = document.getElementById("main-video-3");
+        titleElement = document.querySelector('#collapse3 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-4"))) {
+        mainVideo = document.getElementById("main-video-4");
+        titleElement = document.querySelector('#collapse4 .main-vídeo .title');
       }
       
       var newSrc = element.getAttribute("data-src");
