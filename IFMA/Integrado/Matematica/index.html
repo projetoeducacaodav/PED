@@ -427,7 +427,7 @@ h4 {
           </div>
           <!-- lista de vídeos -->
           <div class="video-list">
-            <div class="item" data-title="01. Números naturais e inteiros." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview"  onclick="changeVideo(this)">
+            <div class="item" data-title="01. Vídeo 01" data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview"  onclick="changeVideo(this)">
               <img src="https://i.ibb.co/71WSmNp/Apresenta-o-lgebra-Scrapbook-Azul-e-Amarelo-2.jpg" alt="Vídeo 01">
               <span class="title">01. Números naturais, inteiros.</span>
             </div>
@@ -511,7 +511,7 @@ h4 {
       <!-- vídeo principal -->
     <div class="panel-body">
       <div class="main-vídeo">
-        <iframe id="main-video-2" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
+        <iframe id="main-video-3" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
         <h3 class="title">01. Números Irracionais</h3>
       </div>
       <!-- lista de vídeos -->
@@ -555,7 +555,7 @@ h4 {
       <!-- vídeo principal -->
     <div class="panel-body">
       <div class="main-vídeo">
-        <iframe id="main-video-2" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
+        <iframe id="main-video-4" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
         <h3 class="title">01. Números Reais</h3>
       </div>
       <!-- lista de vídeos -->
@@ -605,7 +605,13 @@ h4 {
       } else if (element.closest(".panel-body").contains(document.getElementById("main-video-2"))) {
         mainVideo = document.getElementById("main-video-2");
         titleElement = document.querySelector('#collapse2 .main-vídeo .title');
-      }
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-3"))) {
+        mainVideo = document.getElementById("main-video-3");
+        titleElement = document.querySelector('#collapse3 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-4"))) {
+        mainVideo = document.getElementById("main-video-4");
+        titleElement = document.querySelector('#collapse4 .main-vídeo .title');
+      } 
       
       var newSrc = element.getAttribute("data-src");
       var newTitle = element.getAttribute("data-title");
