@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://i.ibb.co/S3sDwR0/favicon.png">
+  <title>PED - Notícias</title>
+  <!-- CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- CSS do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+    /* Estilo da barra de menu */
+.navbar { /* Define a cor de fundo da barra de navegação e remove a borda */
+  background-color: #084876d2;
+  margin-bottom: 0; /* Remove a margem inferior */
+  border: none; /* Remove a borda da barra */
+  z-index: 1000; /* Garante que a barra esteja acima de outros elementos */
+}
+
+.navbar-brand img { /* Estiliza o logo da marca na barra de navegação */
+  height: 39px; /* Define a altura da imagem */
+  margin-top: -9px; /* Adiciona espaçamento acima da imagem */
+  margin-left: 0px; /* Adiciona espaçamento à esquerda da imagem */
+  background-color: #ffffff9d; /* Aplica um fundo semi-transparente à imagem */
+  border-radius: 50px; /* Arredonda os cantos da imagem */
+}
+
+.navbar-nav > li > a { /* Estiliza os links de navegação */
+  color: white !important; /* Define a cor do texto como branco */
+  font-size: 1.3em; /* Aumenta o tamanho da fonte */
+  font-weight: bold; /* Define o peso da fonte como negrito */
+}
+
+ /* Quando o menu está ativo, a cor do link deve ficar preta */
+ .navbar-nav > li.open > a {
+      color: black !important;}
+
+/* Slide de imagens */
+.carousel-inner img { /* Estiliza as imagens dentro do carrossel */
+  width: 100%; /* Define a largura da imagem para preencher o contêiner */
+  height: 1080px; /* Define a altura das imagens */
+  object-fit: cover; /* Faz a imagem preencher o contêiner sem distorção */
+}
+
+/* Estilo da área de notícias */
+.news-container {
+  margin: 20px;
+}
+
+.btn {
+background-color: #9c9c9c;
+}
+
+
+.news-sidebar {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.news-sidebar h4 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.news-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news-sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.news-sidebar ul li a {
+  text-decoration: none;
+  color: #084876;
+}
+
+.news-sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.news-content {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.news-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.news-content h2 {
+  margin-top: 0;
+  font-weight: bold;
+}
+.news-content p {
+  text-align: justify;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Estilo do rodapé */
+.footer { /* Estiliza o rodapé da página */
+  background-color: #333; /* Define a cor de fundo do rodapé */
+  color: white; /* Define a cor do texto como branco */
+  padding: 40px 20px; /* Define o espaçamento interno no rodapé */
+  text-align: center; /* Centraliza o texto */
+}
+
+.footer .social-icons a { /* Estiliza os ícones de redes sociais no rodapé */
+  color: white; /* Define a cor dos ícones como branco */
+  font-size: 24px; /* Define o tamanho dos ícones */
+  margin: 0 15px; /* Adiciona espaçamento entre os ícones */
+  text-decoration: none; /* Remove a sublinha dos links */
+  transition: color 0.3s; /* Adiciona uma transição suave de cor ao passar o mouse */
+}
+
+.footer .social-icons a:hover { /* Estiliza os ícones ao passar o mouse */
+  color: #4da2de; /* Muda a cor do ícone para azul ao passar o mouse */
+}
+
+/* ===== Media Queries para responsividade ===== */
+
+@media (max-width: 992px) { /* Telas médias (tablets, etc.) */
+  .navbar-nav > li > a {
+   font-size: 1.1em;
+   color: white !important;
+   }
+   .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+    }
+  
+
+@media (max-width: 768px) { /* Telas pequenas (smartphones, etc.) */
+  .navbar-nav > li > a {
+    font-size: 1em;
+  }
+  .navbar-nav > li > a {
+   font-size: 1.1em;
+   color: white !important;
+   }
+   .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+
+    .news-sidebar {
+    display: none; /* Ocultar a sidebar em telas pequenas */
+  }
+
+  .footer {
+    padding: 20px 10px;
+  }
+
+  .footer .social-icons a {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) { /* Telas muito pequenas (smartphones antigos, etc.) */
+  .navbar-nav > li > a {
+    font-size: 0.9em;
+  }
+  .navbar-nav > li > a {
+   font-size: 1.1em;
+   color: white !important;
+   }
+   .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+    
+  .news-sidebar {
+  
+  }
+  .news-content {
+    margin-top: 0;
+  }
+
+  .footer .social-icons a {
+    font-size: 18px;
+    margin: 0 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegação -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="https://i.ibb.co/FxxkRvL/logo-transparent.png" alt="Logo">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <!-- Link IFMA -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">IFMA <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Integrado/Menu">Integrado</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Concomitante/Menu">Concomitante</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Subsequente/Menu">Subsequente</a></li>
+            </ul>
+          </li>
+          <!-- Link CMT -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMT <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/CMT/6º ano/Menu">6º Ano</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/CMT/9º ano/Menu">9º Ano</a></li>
+            </ul>
+          </li>
+
+          <!-- Link 3 -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> VOLTAR <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/">Página principal</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Slide de imagens -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active">
+        <a href="#"><img src="slide1.jpg" alt="Slide 1"></a>
+      </div>
+      <div class="item">
+        <a href="#"><img src="slide2.jpg" alt="Slide 2"></a>
+      </div>
+      <div class="item">
+        <a href="#"><img src="slide3.jpg" alt="Slide 3"></a>
+      </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Próximo</span>
+    </a>
+  </div>
+  
+  <!-- Conteúdo de Notícias -->
+  <div class="container news-container">
+    <div class="row">
+      <!-- Coluna da esquerda com links e tópicos -->
+      <div class="col-md-3 news-sidebar">
+        <h4>Tópicos Relacionados</h4>
+        <ul>
+          <li><a href="#">Educação no Brasil</a></li>
+          <li><a href="#">Tecnologia na Educação</a></li>
+          <li><a href="#">Inovações Pedagógicas</a></li>
+          <li><a href="#">Eventos e Conferências</a></li>
+          <li><a href="#">Formação de Professores</a></li>
+        </ul>
+      </div>
+
+     <!-- Botão para mostrar o menu em telas pequenas -->
+<button class="btn btn-primary visible-xs-block" data-toggle="collapse" data-target="#newsSidebar">
+  Tópicos Relacionados
+</button>
+
+<!-- Coluna da esquerda com links e tópicos, usando collapse para telas pequenas -->
+<div id="newsSidebar" class="col-md-3 news-sidebar collapse">
+  <h4>Tópicos Relacionados</h4>
+  <ul>
+    <li><a href="#">Educação no Brasil</a></li>
+    <li><a href="#">Tecnologia na Educação</a></li>
+    <li><a href="#">Inovações Pedagógicas</a></li>
+    <li><a href="#">Eventos e Conferências</a></li>
+    <li><a href="#">Formação de Professores</a></li>
+  </ul>
+</div>
+
+      
+      <!-- Conteúdo principal da notícia -->
+      <div class="col-md-9 news-content">
+        <h2>Estão abertas as inscrições - IFMA 2025</h2>
+        <img src="https://via.placeholder.com/800x400" alt="Imagem da Notícia">
+        <p>Estão abertas as inscrições para o processo seletivo 2025 do Instituto Federal do Maranhão (IFMA). O IFMA oferece cursos técnicos integrados, concomitantes e subsequentes ao ensino médio, além de cursos superiores em diversas áreas de conhecimento. As oportunidades disponíveis estão em diversas unidades do instituto, espalhadas por todo o estado, proporcionando uma excelente oportunidade para os jovens e adultos que desejam ingressar.</p>
+
+        <p>Os candidatos poderão inscrever-se até ao fim de novembro de 2024, e o processo seletivo será realizado por meio de uma prova objetiva com questões de múltipla escolha. As disciplinas avaliadas variam conforme o nível do curso escolhido, abrangendo conteúdos de português e matemática.</p>
+
+        <p>O IFMA é reconhecido pela sua qualidade de ensino e pela formação de profissionais preparados para o mercado de trabalho. Com infraestrutura moderna e professores avançados, o instituto promove o desenvolvimento técnico, científico e cultural de seus alunos. Não perca a oportunidade de estudar em uma das principais instituições públicas de ensino técnico e superior do Maranhão.</p>
+
+        <img src="https://via.placeholder.com/800x400" alt="Gráfico da Notícia">
+
+        <p>O <a href="#">edital</a> do processo seletivo IFMA 2025 já está disponível no site oficial do instituto e traz todas as informações elaboradas sobre as etapas do concurso. Nele, os candidatos encontrarão orientações sobre os pré-requisitos para cada modalidade de curso, o cronograma completo do processo seletivo, além dos conteúdos programáticos que serão cobrados na prova. É fundamental que os interessados ​​leiam o edital com atenção para se familiarizarem com as regras e evitarem qualquer erro durante a inscrição. O documento também informa sobre as cotas, taxas isentas de taxas e orientações para candidatos com necessidades especiais, garantindo um processo inclusivo e acessível a todos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/projetoeducacaodav?igsh=ZHZvamRiaHR3Nmp6" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@projetoeducacao5790" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="info">
+      <p>&copy; 2024 Projeto Educação Dav. Todos os direitos reservados.</p>
+      <p>Contato: projeto.educacao.dav@gmail.com
+      </p>
+      <p>Telefone: (99) </p>
+    </div>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelector('.carousel-slide');
+    const totalSlides = slides.querySelectorAll('img').length;
+    
+    document.querySelector('.next-btn').addEventListener('click', () => {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      slides.style.transform = `translateX(${-slideIndex * 300}px)`;
+    });
+    
+    document.querySelector('.prev-btn').addEventListener('click', () => {
+      slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(${-slideIndex * 300}px)`;
+    });
+    </script>
+
+</body>
+</html>
