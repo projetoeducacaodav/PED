@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://i.ibb.co/S3sDwR0/favicon.png">
+  <title>Projeto Educação Dav</title>
+  <!-- CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- CSS do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+  /* Estilo da barra de menu */
+  .navbar {
+      background-color: #084876d2;
+      margin-bottom: 0;
+      border: none;
+      z-index: 1000; /* Certifica-se de que a barra de navegação fica sobre os elementos */
+    }
+    
+    /* Estilo para a LOGO*/
+    .navbar-brand {
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+    }
+
+    .navbar-brand img {
+    height: 36px; /* Ajuste a altura da imagem conforme necessário */
+    max-height: 100%; /* Ajusta a altura da imagem */
+    height: 40px; /* Ajuste a altura conforme necessário */
+    margin-top: 5px; /* Ajuste o valor para o posicionamento desejado */
+    margin-left: 10px; /* Ajuste a logo um puco para a esquerda */
+    background-color: #ffffff9d; /* Ajuste a cor de fundo da logo */
+    border-radius: 50px;
+
+    }
+
+    /* Estilo para a os links da barra de menu*/
+    .navbar-nav > li > a {
+      color: white !important;
+      font-size: 1.3em; /* Aumenta o tamanho da fonte em 20% */
+      font-weight: bold; /* Deixa a fonte em negrito */
+    }
+
+    /* Quando o menu está ativo, a cor do link deve ficar preta */
+    .navbar-nav > li.open > a {
+      color: black !important;}
+ 
+
+    .navbar-nav > li > a:hover, .navbar-nav > li > .dropdown-menu > li > a:hover {
+      background-color: #2980b9 !important;
+      color: #fff !important;
+    }
+    .navbar-nav .dropdown-menu {
+      background-color: #4da2de;
+    }
+    .navbar-nav .dropdown-menu > li > a {
+      color: white !important;
+      font-weight: bold; /* Deixa a fonte em negrito */
+    }
+    .navbar-toggle {
+      border-color: white;
+    }
+    .navbar-toggle .icon-bar {
+      background-color: white;
+    }
+
+    /* Slide de imagens */
+    .carousel-inner img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* Ajusta o slide para que não seja sobreposto pelo menu em telas menores */
+    .carousel {
+      margin-top: 50px; /* Ajuste o valor conforme necessário para evitar sobreposição */
+    }
+
+    /* Botão voltar */
+    .btn-voltar {
+      background-color: #2980b9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .btn-voltar:hover {
+      background-color: #1f6390;
+      color: white;
+      text-decoration: none;
+    }
+    
+    /* Espaço adicional abaixo do botão voltar */
+    .btn-voltar-container {
+      margin-bottom: 40px; /* Adiciona espaço abaixo do botão */
+    }
+
+    /* Estilo para o título com fundo cinza */
+
+    .titulo {
+      background-color: #cccccc; /* Cor de fundo cinza */
+      color: #000000; /* Cor da fonte preta */
+      font-family: 'Arial', sans-serif; /* Fonte simples e legível */
+      font-size: 36px; /* Tamanho da fonte */
+      text-align: center; /* Centraliza o texto */
+      padding: 20px 0; /* Espaço interno para o título */
+      margin: 0; /* Remove qualquer margem ao redor */
+      margin-bottom: 30px; /* Espaço extra abaixo do título */
+      width: 100%; /* Faz o fundo cobrir a largura total da página */
+    }
+
+    /* Define o estilo para colunas de tamanho médio */
+.col-md-6 {
+  position: relative; /* Define a posição relativa para permitir posicionamento absoluto de elementos filhos */
+  text-align: center; /* Centraliza o texto dentro da coluna */
+  font-size: 1.5em; /* Define o tamanho da fonte como 1.5 vezes o tamanho padrão */
+  padding: 5px; /* Adiciona 5 pixels de espaçamento interno */
+}
+
+/* Define o estilo dos botões */
+.btn {
+  background-color: #ffffff; /* Define a cor de fundo dos botões como branca */
+}
+
+/* Define o estilo dos painéis dentro de um grupo de painéis */
+.panel-group .panel {
+  border-radius: 15px; /* Arredonda os cantos do painel com um raio de 15 pixels */
+  box-shadow: none; /* Remove a sombra padrão do painel */
+  border-color: #78cbf8; /* Define a cor da borda como um tom de azul claro */
+}
+
+/* Define o estilo do cabeçalho do painel padrão */
+.panel-default > .panel-heading {
+  padding: 0; /* Remove o espaçamento interno padrão do cabeçalho do painel */
+  border-radius: 0; /* Remove o arredondamento dos cantos do cabeçalho do painel */
+  color: #212121; /* Define a cor do texto como um cinza escuro */
+  background-color: #79C7EB; /* Define a cor de fundo do cabeçalho como um tom de azul claro */
+  border-color: #EEEEEE; /* Define a cor da borda do cabeçalho como um cinza muito claro */
+}
+
+/* Define o estilo dos links dentro do título do painel */
+.panel-title a {
+  display: block; /* Faz com que o link ocupe toda a largura disponível */
+  padding: 15px; /* Adiciona 15 pixels de espaçamento interno ao link */
+  text-align: left; /* Alinha o texto do link à esquerda */
+  font-weight: bold; /* Define o texto como negrito */
+  color: #000000; /* Define a cor do texto como preta */
+  text-decoration: none; /* Remove o sublinhado do link */
+}
+
+/* Define o estilo dos títulos h4 dentro dos painéis */
+h4 {
+  color: white; /* Define a cor do texto como branca */
+  text-align: center; /* Centraliza o texto */
+  font-weight: bold; /* Define o texto como negrito */
+  background-color: #4da2de; /* Define a cor de fundo como um tom de azul */
+  padding: 5px; /* Adiciona 5 pixels de espaçamento interno ao título */
+}
+
+/* Define o estilo do corpo do painel, que exibe os vídeos e a lista de vídeos */
+.panel-body {
+  display: flex; /* Define o layout como flexível para permitir a disposição dos itens */
+  flex-direction: row; /* Alinha os itens em uma linha horizontal */
+  padding: 5px; /* Adiciona 5 pixels de espaçamento interno */
+  gap: 15px; /* Adiciona um espaço de 15 pixels entre os itens */
+}
+
+/* Define o estilo para a área de vídeo principal */
+.main-vídeo {
+  flex: 2.5; /* Define o vídeo principal para ocupar 3 partes do espaço disponível */
+  background: #fff; /* Define a cor de fundo como branca */
+  border-radius: 5px; /* Arredonda os cantos da área de vídeo com um raio de 5 pixels */
+  padding: 10px; /* Adiciona 10 pixels de espaçamento interno */
+}
+
+/* Define o estilo do iframe dentro da área de vídeo principal */
+.main-vídeo iframe {
+  width: 100%; /* Define a largura do iframe como 100% do contêiner pai */
+  height: 400px; /* Define a altura do iframe como 400 pixels */
+  border-radius: 5px; /* Arredonda os cantos do iframe com um raio de 5 pixels */
+}
+
+/* Define o estilo da lista de vídeos */
+.video-list {
+  flex: 1.5; /* Define a lista de vídeos para ocupar o restante do espaço disponível */
+  background-color: #fff; /* Define a cor de fundo como branca */
+  border-radius: 5px; /* Arredonda os cantos da lista com um raio de 5 pixels */
+  padding: 10px; /* Adiciona 10 pixels de espaçamento interno */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical se o conteúdo exceder a altura do contêiner */
+  max-height: 400px; /* Define a altura máxima da lista como 400 pixels */
+}
+
+/* Define o estilo dos itens da lista de vídeos */
+.video-list .item {
+  display: flex; /* Define o layout como flexível para alinhar os itens */
+  align-items: center; /* Alinha verticalmente os itens ao centro */
+  gap: 10px; /* Adiciona um espaço de 10 pixels entre os itens */
+  background: #f7f7f7; /* Define a cor de fundo como um tom muito claro de cinza */
+  border-radius: 5px; /* Arredonda os cantos do item com um raio de 5 pixels */
+  margin: 5px 0; /* Adiciona uma margem de 5 pixels acima e abaixo do item */
+  padding: 10px; /* Adiciona 10 pixels de espaçamento interno */
+  cursor: pointer; /* Define o cursor como uma mão ao passar sobre o item */
+  transition: background 0.3s, color 0.3s; /* Adiciona uma transição suave para as alterações de cor e fundo */
+}
+
+/* Define o estilo da imagem dentro dos itens da lista de vídeos */
+.video-list .item img {
+  width: 80px; /* Define a largura da imagem como 80 pixels */
+  height: 60px; /* Define a altura da imagem como 60 pixels */
+  border-radius: 5px; /* Arredonda os cantos da imagem com um raio de 5 pixels */
+}
+
+/* Define o estilo do item da lista de vídeos ao passar o mouse */
+.video-list .item:hover {
+  background: #eee; /* Altera a cor de fundo para um cinza claro ao passar o mouse */
+}
+
+/* Define o estilo do item da lista de vídeos quando está ativo */
+.video-list .item.active {
+  background: #2980b9; /* Define a cor de fundo como um tom de azul ao ser ativado */
+  color: #fff; /* Define a cor do texto como branca */
+}
+
+/* Define o estilo do título dentro dos itens da lista de vídeos */
+.video-list .item .title {
+  color: #333; /* Define a cor do texto como um cinza escuro */
+  font-size: 17px; /* Define o tamanho da fonte como 17 pixels */
+  font-weight: bold; /* Define o texto como negrito */
+}
+
+/* Define o estilo do contêiner do botão PDF */
+.btn-pdf-container {
+  text-align: center; /* Centraliza o botão */
+  margin-bottom: 15px; /* Adiciona uma margem inferior */
+  margin-top: 15px; /* Adiciona uma margem superior */
+  width: 100%; /* Ocupa toda a largura do contêiner */
+}
+
+/* Define o estilo responsivo para telas menores */
+@media (max-width: 768px) {
+  .panel-body {
+    flex-direction: column; /* Alinha os itens em uma coluna em vez de linha em telas pequenas */
+  }
+  .main-vídeo {
+    flex: none; /* Remove a flexibilidade do vídeo principal em telas pequenas */
+    margin-bottom: 15px; /* Adiciona uma margem inferior de 15 pixels */
+  }
+  .video-list {
+    flex: none; /* Remove a flexibilidade da lista de vídeos em telas pequenas */
+    max-height: none; /* Remove a altura máxima da lista de vídeos */
+  }
+}
+
+      /* Estilo do rodapé */
+    .footer {
+      background-color: #333; /* Fundo escuro */
+      color: white; /* Texto branco */
+      padding: 40px 20px; /* Espaçamento interno */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Estilo para os ícones das redes sociais */
+    .footer .social-icons {
+      margin-bottom: 20px;
+    }
+
+    .footer .social-icons a {
+      color: white;
+      font-size: 24px; /* Tamanho dos ícones */
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer .social-icons a:hover {
+      color: #4da2de; /* Cor ao passar o mouse */
+    }
+
+    /* Estilo para as informações */
+    .footer .info {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer .info p {
+      margin: 5px 0;
+    }
+
+    /* Estilo responsivo */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 20px 10px;
+      }
+
+      .footer .social-icons a {
+        margin: 0 10px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegação -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="https://i.ibb.co/FxxkRvL/logo-transparent.png" alt="Logo">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">IFMA<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Integrado/Menu">Integrado</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Concomitante/Menu">Concomitante</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Subsequente/Menu">Subsequente</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMT <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/CMT/6º ano/Menu">6º Ano</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/CMT/9º ano/Menu">9º Ano</a></li>
+            </ul>
+          </li>
+
+         <!-- link Voltar -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> VOLTAR <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/">Página principal</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Slide de imagens -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicadores -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="slide02.jpg" alt="Slide 1">
+      </div>
+
+      <div class="item">
+        <img src="slide02.jpg" alt="Slide 2">
+      </div>
+
+      <div class="item">
+        <img src="slide02.jpg" alt="Slide 3">
+      </div>
+    </div>
+
+    <!-- Controles -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Próximo</span>
+    </a>
+  </div>
+
+  <!-- Botão Voltar -->
+  <div class="text-center btn-voltar-container">
+    <a href="https://projetoeducacaodav.github.io/PED/IFMA/Integrado/Menu" class="btn-voltar">Voltar</a>
+  </div>
+
+  <!-- Título com fundo cinza -->
+  <h1 class="titulo">IFMA - Integrado - Português</h1>
+
+  <!-- acordeon 1 -->
+  <div class="panel-group" id="accordion">
+    <!-- container 1 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">AULA 01 - LEITURA, INTERPRETAÇÃO E COMPREENSÃO DE TEXTOS</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+          <!-- botão pdf -->
+          <div class="btn-pdf-container">
+            <button type="button" class="btn btn-primary">
+              <a href="pdf 1.pdf" target="_blank">
+                <i class="glyphicon glyphicon-save-file"></i> Baixe o PDF aqui
+              </a>
+            </button>
+          </div>
+        </div>   
+          <!-- vídeo principal -->
+        <div class="panel-body">
+          <div class="main-vídeo">
+            <iframe id="main-video" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
+            <h3 class="title">01. Tipos de textos</h3>
+          </div>
+          <!-- lista de vídeos -->
+          <div class="video-list">
+            <div class="item" data-title="01. Tipos de textos." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview"  onclick="changeVideo(this)">
+              <img src="img01.jpg" alt="Vídeo 01">
+              <span class="title">01. Tipos de textos.</span>
+            </div>
+            <div class="item" data-title="02. Informações implícitas." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen onclick="changeVideo(this)">
+              <img src="img01.jpg" alt="Vídeo 02">
+              <span class="title">02. Informações implícitas.</span>
+            </div>
+            <div class="item" data-title="03. Organização das Ideias no Texto" data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+              <img src="img01.jpg" alt="Vídeo 03">
+              <span class="title">03. Organização das Ideias no Texto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- container 2 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">AULA 02 - TEXTUALIDADE: COERÊNCIA E COESÃO NA CONSTRUÇÃO DO TEXTO</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+          <!-- botão pdf -->
+          <div class="btn-pdf-container">
+            <button type="button" class="btn btn-primary">
+              <a href="pdf 2.pdf" target="_blank">
+                <i class="glyphicon glyphicon-save-file"></i> Baixe o PDF aqui
+              </a>
+            </button>
+          </div>
+        </div>
+          <!-- vídeo principal -->
+        <div class="panel-body">
+          <div class="main-vídeo">
+            <iframe id="main-video-2" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
+            <h3 class="title">01. Coerência e Coesão textual.</h3>
+          </div>
+          <!-- lista de vídeos -->
+          <div class="video-list">
+            <div class="item" data-title="01. Coerência e Coesão textual." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+              <img src="img02.jpg" alt="Vídeo 01">
+              <span class="title">01. Coerência e Coesão textual.</span>
+            </div>
+            <div class="item" data-title="02. Palavras Parônimas e Antônimas." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+              <img src="img02.jpg" alt="Vídeo 02">
+              <span class="title">02. Palavras Parônimas e Antônimas.</span>
+            </div>
+            <div class="item" data-title="03. Ambiguidade e Polissemia." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+              <img src="img02.jpg" alt="Vídeo 03">
+              <span class="title">03. Ambiguidade e Polissemia.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- container 3 -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">AULA 03 - ESTUDO GRAMATICAL: FONÉTICA E FONOLOGIA, DIVISÃO SILÁBICA E MORFOLOGIA</a>
+    </h4>
+  </div>
+  <div id="collapse3" class="panel-collapse collapse">
+    <div class="panel-body">
+      <!-- botão pdf -->
+      <div class="btn-pdf-container">
+        <button type="button" class="btn btn-primary">
+          <a href="pdf 3.pdf" target="_blank">
+            <i class="glyphicon glyphicon-save-file"></i> Baixe o PDF aqui
+          </a>
+        </button>
+      </div>
+    </div>
+      <!-- vídeo principal -->
+    <div class="panel-body">
+      <div class="main-vídeo">
+        <iframe id="main-video-3" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
+        <h3 class="title">01. Fonética e fonologia.</h3>
+      </div>
+      <!-- lista de vídeos -->
+      <div class="video-list">
+        <div class="item" data-title="01. Fonética e fonologia." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+          <img src="img03.jpg" alt="Vídeo 01">
+          <span class="title">01. Fonética e fonologia.</span>
+        </div>
+        <div class="item" data-title="02. Divisão silábica." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+          <img src="img03.jpg" alt="Vídeo 02">
+          <span class="title">02. Divisão silábica.</span>
+        </div>
+        <div class="item" data-title="03. Sílabas tônicas." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+          <img src="img03.jpg" alt="Vídeo 03">
+          <span class="title">03. Sílabas tônicas.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<!-- container 4 -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">AULA 04 - CLASSES DE PALAVRAS</a>
+    </h4>
+  </div>
+  <div id="collapse4" class="panel-collapse collapse">
+    <div class="panel-body">
+      <!-- botão pdf -->
+      <div class="btn-pdf-container">
+        <button type="button" class="btn btn-primary">
+          <a href="pdf 4.pdf" target="_blank">
+            <i class="glyphicon glyphicon-save-file"></i> Baixe o PDF aqui
+          </a>
+        </button>
+      </div>
+    </div>
+      <!-- vídeo principal -->
+    <div class="panel-body">
+      <div class="main-vídeo">
+        <iframe id="main-video-4" src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" allowfullscreen></iframe>
+        <h3 class="title">01. Substantivo.</h3>
+      </div>
+      <!-- lista de vídeos -->
+      <div class="video-list">
+        <div class="item" data-title="01. Substantivo." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+          <img src="img04.jpg" alt="Vídeo 01">
+          <span class="title">01. Substantivo.</span>
+        </div>
+        <div class="item" data-title="02. Artigo e Adjetivo." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+          <img src="img04.jpg" alt="Vídeo 02">
+          <span class="title">02. Artigo e Adjetivo.</span>
+        </div>
+        <div class="item" data-title="03. Numeral e Pronome." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+          <img src="img04.jpg" alt="Vídeo 03">
+          <span class="title">03. Numeral e Pronome.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/projetoeducacaodav?igsh=ZHZvamRiaHR3Nmp6" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@projetoeducacao5790" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="info">
+      <p>&copy; 2024 Projeto Educação Dav. Todos os direitos reservados.</p>
+      <p>Contato: projeto.educacao.dav@gmail.com
+      </p>
+      <p>Telefone: (99) </p>
+    </div>
+  </footer>
+
+  <script>
+    function changeVideo(element) {
+      var mainVideo;
+      var titleElement;
+
+      if (element.closest(".panel-body").contains(document.getElementById("main-video"))) {
+        mainVideo = document.getElementById("main-video");
+        titleElement = document.querySelector('#collapse1 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-2"))) {
+        mainVideo = document.getElementById("main-video-2");
+        titleElement = document.querySelector('#collapse2 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-3"))) {
+        mainVideo = document.getElementById("main-video-3");
+        titleElement = document.querySelector('#collapse3 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-4"))) {
+        mainVideo = document.getElementById("main-video-4");
+        titleElement = document.querySelector('#collapse4 .main-vídeo .title');
+      }
+      
+      var newSrc = element.getAttribute("data-src");
+      var newTitle = element.getAttribute("data-title");
+
+      mainVideo.src = newSrc;
+      titleElement.innerHTML = newTitle;
+
+      var items = element.closest(".video-list").querySelectorAll(".item");
+      items.forEach(function(item) {
+        item.classList.remove("active");
+      });
+      element.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
