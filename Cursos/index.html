@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://i.ibb.co/S3sDwR0/favicon.png">
+  <title>Projeto Educação Dav</title>
+  <!-- CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- CSS do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    /* Estilo da barra de menu */
+    .navbar {
+      background-color: #084876d2;
+      margin-bottom: 0;
+      border: none;
+      z-index: 1000;
+    }
+
+    .navbar-brand img {
+      height: 39px;
+      margin-top: -9px;
+      margin-left: 0px;
+      background-color: #ffffff9d;
+      border-radius: 50px;
+    }
+
+    .navbar-nav > li > a {
+      color: white !important;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    /* Quando o menu está ativo, a cor do link deve ficar preta */
+    .navbar-nav > li.open > a {
+      color: black !important;
+    }
+
+    .conteiner-suspenso {
+      display: flex;
+      flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo */
+      justify-content: center; /* Centraliza os elementos horizontalmente */
+      gap: 15px; /* Espaço entre as caixas */
+      margin-top: 100px; /* Espaço em relação à barra de navegação */
+    }
+
+
+        /* Estilização da div principal */
+        .suspenso {
+            position: relative; /* Necessário para a imagem posicionada no canto */
+            width: 290px;
+            height: 200px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin: 70px auto;
+            padding: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #333;
+            
+            /* Efeitos de sombra */
+            box-shadow: 
+                0px 6px 10px 5px rgba(0, 0, 0, 0.1), /* sombra leve */
+                0px 12px 20px 8px rgba(0, 0, 0, 0.08), /* sombra intermediária */
+                0px 16px 24px 11px rgba(0, 0, 0, 0.05); /* sombra mais difusa */
+            transition: transform 0.3s ease;
+        }
+
+        /* Efeito suspenso ao passar o mouse */
+        .suspenso:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0px 6px 8px rgba(0, 0, 0, 0.1),
+                0px 12px 16px rgba(0, 0, 0, 0.08),
+                0px 16px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Estilização da imagem no canto superior esquerdo */
+        .suspenso img {
+            position: relative;
+            top: -60px;
+            left: 10px;
+            width: 50px; /* Tamanho da imagem */
+            height: 50px;
+        } 
+
+       /*posição do texto na caixa*/
+        .suspenso h4 {
+         position: relative;
+         top: -75px;
+         left: 20px;
+         font-size: 25px;
+
+        }
+
+        .suspenso p {
+          position: auto;
+          margin-left: -30px;
+          margin-right: 2px;
+          margin-top: 10px;
+          text-decoration: none;
+        }
+
+       .conteiner-suspenso a:hover{
+        text-decoration: none;
+       }
+
+        @media (max-width: 922px) {
+      /* Ajustando o menu dropdown em telas menores */
+      .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+
+      .section-title {
+        font-size: 1.5em;
+      }
+      .conteiner-suspenso {
+        display: block;
+        flex-direction: column;
+      }
+
+      .conteiner-suspenso a:hover{
+        text-decoration: none;
+       }
+
+      .suspenso {
+        width: 290px;
+        height: 200px;
+      }
+    }
+    @media (max-width: 768px) {
+      /* Ajustando o menu dropdown em telas menores */
+      .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+
+      .section-title {
+        font-size: 1.5em;
+      }
+      .conteiner-suspenso {
+        display: block;
+        flex-direction: column;
+      }
+      .suspenso {
+        width: 290px;
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Ajustando o menu dropdown em telas menores */
+      .dropdown-menu > li > a {
+        color: white !important;
+        font-weight: bold;
+        background-color: #084876;
+      }
+
+      .dropdown-menu > li > a:hover {
+        background-color: #063358;
+      }
+
+      .section-title {
+        font-size: 1.3em;
+      }
+    }
+
+    /* Estilo do rodapé */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer .social-icons a {
+      color: white;
+      font-size: 24px;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer .social-icons a:hover {
+      color: #4da2de;
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Barra de navegação -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="https://i.ibb.co/FxxkRvL/logo-transparent.png" alt="Logo">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">IFMA <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Integrado/Menu">Integrado</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Concomitante/Menu">Concomitante</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/IFMA/Subsequente/Menu">Subsequente</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMT <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED/CMT/6º ano/Menu">6º Ano</a></li>
+              <li><a href="https://projetoeducacaodav.github.io/PED/CMT/9º ano/Menu">9º Ano</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">VOLTAR <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="https://projetoeducacaodav.github.io/PED">Página principal</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- caixas -->
+<div class="conteiner-suspenso">
+  <a href="https://projetoeducacaodav.github.io/PED/IFMA/Integrado/Menu">
+    <div class="suspenso">
+    <img src="img1.png" alt="Ícone"> <!-- Link da imagem -->
+    <H4>IFMA</H4>
+    <p>Acesse o material para o seletivo da modalidade Integrada do IFMA.</p>
+  </div></a>
+  <a href="https://projetoeducacaodav.github.io/PED/IFMA/Concomitante/Menu">
+    <div class="suspenso">
+    <img src="img1.png" alt="Ícone"> <!-- Link da imagem -->
+    <H4>IFMA</H4>
+    <p>Acesse o material para o seletivo da modalidade Concomitante do IFMA.</p>
+  </div></a>
+  <a href="https://projetoeducacaodav.github.io/PED/IFMA/Subsequente/Menu">
+  <div class="suspenso">
+  <img src="img1.png" alt="Ícone"> <!-- Link da imagem -->
+  <H4>IFMA</H4>
+  <p>Acesse o material para o seletivo da modalidade Subsequente do IFMA.</p>
+  </div></a>
+  <a href="https://projetoeducacaodav.github.io/PED/CMT/6º ano/Menu">
+    <div class="suspenso">
+    <img src="img2.png" alt="Ícone"> <!-- Link da imagem -->
+    <H4>CMT</H4>
+    <p>Acesse o material para o seletivo do 6º ano da Escola Militar.</p>
+    </div></a>
+    <a href="https://projetoeducacaodav.github.io/PED/CMT/9º ano/Menu">
+      <div class="suspenso">
+      <img src="img2.png" alt="Ícone"> <!-- Link da imagem -->
+      <H4>CMT</H4>
+      <p>Acesse o material para o seletivo do 9º ano da Escola Militar.</p>
+      </div></a>
+</div>
+  
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/projetoeducacaodav?igsh=ZHZvamRiaHR3Nmp6" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@projetoeducacao5790" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="info">
+      <p>&copy; 2024 Projeto Educação Dav. Todos os direitos reservados.</p>
+      <p>Contato: projeto.educacao.dav@gmail.com</p>
+      <p>Telefone: (99) -</p>
+    </div>
+  </footer>
+
+  <script>
+    // Script para alterar a cor do texto quando o menu estiver aberto
+    $(document).ready(function() {
+      $('.dropdown').on('show.bs.dropdown', function() {
+        $(this).find('a.dropdown-toggle').css('color', 'black');
+      });
+
+      $('.dropdown').on('hide.bs.dropdown', function() {
+        $(this).find('a.dropdown-toggle').css('color', 'white');
+      });
+    });
+  </script>
+
+</body>
+</html>
