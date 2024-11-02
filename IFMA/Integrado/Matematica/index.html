@@ -435,9 +435,13 @@ h4 {
               <img src="img01.jpg" alt="Vídeo 02">
               <span class="title">02. Números inteiros.</span>
             </div>
-            <div class="item" data-title="03. MMC e MDC." data-src="https://drive.google.com/file/d/1j5fZJr78g4Icp3oTw9r1B7aQgp_XitV8/preview" onclick="changeVideo(this)">
+            <div class="item" data-title="03. Números inteiros (parte 2)." data-src="https://www.youtube.com/embed/mOtX3McRcs4?si=pdRKldPUyinbJT0J" onclick="changeVideo(this)">
               <img src="img01.jpg" alt="Vídeo 03">
-              <span class="title">03. MMC e MDC.</span>
+              <span class="title">03. Números inteiros (parte 2).</span>
+            </div>
+            <div class="item" data-title="04. QUESTÕES - Números naturais e números inteiros." data-src="https://www.youtube.com/embed/mOtX3McRcs4?si=pdRKldPUyinbJT0J" onclick="changeVideo(this)">
+              <img src="img01.jpg" alt="Vídeo 03">
+              <span class="title">04. QUESTÕES - Números naturais e números inteiros.</span>
             </div>
           </div>
         </div>
@@ -611,6 +615,12 @@ h4 {
       } else if (element.closest(".panel-body").contains(document.getElementById("main-video-4"))) {
         mainVideo = document.getElementById("main-video-4");
         titleElement = document.querySelector('#collapse4 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-5"))) {
+        mainVideo = document.getElementById("main-video-5");
+        titleElement = document.querySelector('#collapse5 .main-vídeo .title');
+      } else if (element.closest(".panel-body").contains(document.getElementById("main-video-6"))) {
+        mainVideo = document.getElementById("main-video-6");
+        titleElement = document.querySelector('#collapse6 .main-vídeo .title');
       } 
       
       var newSrc = element.getAttribute("data-src");
